@@ -1,5 +1,6 @@
 package datos.impl;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 import datos.UsuarioDao;
@@ -34,6 +35,32 @@ public class UsuarioDaoImpl implements UsuarioDao {
 			cn.close();
 		}
 		return estado;
+	}
+	
+	@Override
+	public Usuario obtenerLogin(String usuario, String contrasena) {
+		
+		cn = new Conexion();
+		cn.Open();
+		Usuario u = null;
+		try 
+		{
+			String query = "SELECT id_usuario FROM usuarios WHERE usuario = '"+usuario+"' AND contrasena = '"+contrasena+"'";
+			ResultSet rs = cn.query(query);
+			if(rs.next()) {
+				u = new Usuario(rs.getInt("id_usuario"), usuario, contrasena);			
+			}
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		} 
+		finally 
+		{
+			cn.close();
+		}
+		
+		return u;
 	}
 
 	@Override
