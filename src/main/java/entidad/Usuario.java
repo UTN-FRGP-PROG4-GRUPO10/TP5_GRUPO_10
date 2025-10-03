@@ -5,6 +5,8 @@ public class Usuario {
 	private String usuario;
 	private String contrasena;
 	
+	
+	
 	public Usuario() {}
 	
 	public Usuario(int id_usuario, String usuario, String contrasena) {
@@ -12,7 +14,8 @@ public class Usuario {
 		this.usuario = usuario;
 		this.contrasena = contrasena;
 	}
-
+	
+//////////////////////////////////////////////////////////////////////////////////////////
 	public int getId_usuario() {
 		return id_usuario;
 	}
