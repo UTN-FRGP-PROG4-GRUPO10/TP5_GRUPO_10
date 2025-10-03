@@ -76,7 +76,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	}
 
 	@Override
-	public boolean editar(Usuario articulo) {
+	public boolean editar(Usuario usuario) {
 		// TODO Auto-generated method stub
 		return false;
 	}

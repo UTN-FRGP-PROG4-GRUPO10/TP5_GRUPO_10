@@ -1,10 +1,10 @@
-package datos;
+package negocio;
 
 import java.util.List;
 
 import entidad.Usuario;
 
-public interface UsuarioDao {
+public interface UsuarioNeg {
 	
 	public List<Usuario> obtenerTodos();
 	public Usuario obtenerUno(int id);
@@ -12,5 +12,4 @@ public interface UsuarioDao {
 	public boolean insertar(Usuario usuario);
 	public boolean editar(Usuario usuario);
 	public boolean borrar(int id);
-	
 }
