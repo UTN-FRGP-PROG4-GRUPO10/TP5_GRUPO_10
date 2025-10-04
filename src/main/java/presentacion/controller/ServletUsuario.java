@@ -38,40 +38,6 @@ public class ServletUsuario extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 		
-//		if(request.getParameter("btnRegistrarCliente") != null)
-//		{
-//			try {
-//				Usuario c = new Usuario();
-//				c.setDni(Integer.parseInt(request.getParameter("txtDNI")));
-//				c.setCuil(Integer.parseInt(request.getParameter("txtCuil")));
-//				c.setNombre(request.getParameter("txtNombre"));
-//				c.setApellido(request.getParameter("txtApellido"));
-//				c.setSexo(request.getParameter("txtSexo"));
-//				c.setNacionalidad(request.getParameter("txtNacionalidad"));
-//				c.setFechaNacimiento(java.time.LocalDate.parse(request.getParameter("txtFechaNacimiento")));
-//				c.setDireccion(request.getParameter("txtDireccion"));
-//				c.setLocalidad(request.getParameter("txtLocalidad"));
-//				c.setProvincia(request.getParameter("txtProvincia"));
-//				c.setCorreoElectronico(request.getParameter("txtCorreoElectronico"));
-//				c.setTelefono(Integer.parseInt(request.getParameter("txtTelefono")));
-//				
-//				boolean  filas = usuarioNeg.insertar(c);
-//				
-//				request.setAttribute("filas", filas);
-//		        request.setAttribute("mensaje", filas ? "Cliente guardado correctamente."
-//                        : "No se pudo guardar el cliente.");
-//				RequestDispatcher dispatcher = request.getRequestDispatcher("/AltaCliente.jsp");
-//		        dispatcher.forward(request, response);
-//		        return;
-//				
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//		        request.setAttribute("mensaje", "Error al guardar cliente: " + e.getMessage());
-//		        RequestDispatcher dispatcher = request.getRequestDispatcher("/AltaCliente.jsp");
-//		        dispatcher.forward(request, response);
-//		        return;
-//			}
-//		}
 	}
 
 }

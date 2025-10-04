@@ -22,7 +22,7 @@ public class ClienteNegImpl implements ClienteNeg {
 	}
 
 	@Override
-	public Cliente obtenerUno(int dni) {
+	public Cliente obtenerUno(String dni) {
 		return clienteDao.obtenerUno(dni);
 	}
 	
@@ -31,7 +31,7 @@ public class ClienteNegImpl implements ClienteNeg {
 		return clienteDao.editar(cliente);
 	}
 	@Override
-	public boolean borrar(int dni) {
+	public boolean borrar(String dni) {
 		return clienteDao.borrar(dni);
 	}
 	@Override

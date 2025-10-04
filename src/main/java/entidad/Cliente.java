@@ -3,8 +3,8 @@ package entidad;
 import java.time.LocalDate;
 
 public class Cliente {
-	private int dni;
-	private int cuil;
+	private String dni;
+	private String cuil;
 	private String nombre;
 	private String apellido;
 	private String sexo;
@@ -14,15 +14,15 @@ public class Cliente {
 	private String localidad;
 	private String provincia;
 	private String correoElectronico;
-	private int telefono;
+	private String telefono;
 	
 	
 	
 	public Cliente() {}
 	
-	public Cliente(int dni, int cuil, String nombre,
+	public Cliente(String dni, String cuil, String nombre,
 			String apellido, String sexo, String nacionalidad, LocalDate fechaNacimiento, String direccion,
-			String localidad, String provincia, String correoElectronico, int telefono) {
+			String localidad, String provincia, String correoElectronico, String telefono) {
 		this.dni = dni;
 		this.cuil = cuil;
 		this.nombre = nombre;
@@ -41,19 +41,19 @@ public class Cliente {
 	
 	
 	
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
 
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 
-	public int getCuil() {
+	public String getCuil() {
 		return cuil;
 	}
 
-	public void setCuil(int cuil) {
+	public void setCuil(String cuil) {
 		this.cuil = cuil;
 	}
 
@@ -129,11 +129,11 @@ public class Cliente {
 		this.correoElectronico = correoElectronico;
 	}
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 

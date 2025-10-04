@@ -20,8 +20,8 @@ public class ClienteDaoImpl implements ClienteDao{
 		cn.Open();
 		try 
 		{
-			String query = "INSERT INTO clientes (dni, cuil, nombre, apellido, sexo, nacionalidad, fecha_nacimiento, direccion, localidad, provincia, correo_electronico, telefono) "
-					+ "VALUES ("+cliente.getDni()+", "+cliente.getCuil()+", '"+cliente.getNombre()+"', '"+cliente.getApellido()+"', '"+cliente.getSexo()+"', '"+cliente.getNacionalidad()+"', '"+cliente.getFechaNacimiento()+"', '"+cliente.getDireccion()+"', '"+cliente.getLocalidad()+"', '"+cliente.getProvincia()+"', '"+cliente.getCorreoElectronico()+"', "+cliente.getTelefono()+")";
+			String query = "INSERT INTO clientes (dni, cuil, nombre, apellido, sexo, fecha_nacimiento, direccion, nacionalidad, localidad, provincia, correo_electronico, telefono) "
+					+ "VALUES ("+cliente.getDni()+", "+cliente.getCuil()+", '"+cliente.getNombre()+"', '"+cliente.getApellido()+"', '"+cliente.getSexo()+"', '"+cliente.getFechaNacimiento()+"', '"+cliente.getDireccion()+"', '"+cliente.getNacionalidad()+"', '"+cliente.getLocalidad()+"', '"+cliente.getProvincia()+"', '"+cliente.getCorreoElectronico()+"', "+cliente.getTelefono()+")";
 			cn.execute(query);
 		} 
 		catch (Exception e) 
@@ -37,17 +37,16 @@ public class ClienteDaoImpl implements ClienteDao{
 	}
 	
 	@Override
-	public Cliente obtenerUno(int dni) {
-		
+	public Cliente obtenerUno(String dni) {
+		Cliente c = null;
 		cn = new Conexion();
 		cn.Open();
-		Cliente c = null;
 		try 
 		{
 			String query = "SELECT * FROM clientes WHERE dni = "+dni;
 			ResultSet rs = cn.query(query);
 			if(rs.next()) {
-				c = new Cliente(rs.getInt("dni"), dni, rs.getString("nombre"), rs.getString("apellido"), rs.getString("telefono"), rs.getString("email"), null, query, query, query, query, dni);			
+				c = new Cliente(rs.getString("dni"), rs.getString("cuil"), rs.getString("nombre"), rs.getString("apellido"), rs.getString("sexo"), rs.getString("nacionalidad"), rs.getDate("fecha_nacimiento").toLocalDate(), rs.getString("direccion"), rs.getString("localidad"), rs.getString("provincia"), rs.getString("correo_electronico"), rs.getString("telefono"));			
 			}
 		} 
 		catch (Exception e) 
@@ -59,7 +58,6 @@ public class ClienteDaoImpl implements ClienteDao{
 			cn.close();
 		}
 		return c;
-		
 	}
 	
 	@Override
@@ -73,7 +71,7 @@ public class ClienteDaoImpl implements ClienteDao{
 		return false;
 	}
 	@Override
-	public boolean borrar(int dni) {
+	public boolean borrar(String dni) {
 		// TODO Auto-generated method stub
 		return false;
 	}

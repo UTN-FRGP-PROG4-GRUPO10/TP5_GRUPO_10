@@ -13,44 +13,28 @@ import entidad.Cliente;
 import negocio.ClienteNeg;
 import negocio.impl.ClienteNegImpl;
 
-/**
- * Servlet implementation class ServletCliente
- */
+
 @WebServlet("/ServletCliente")
 public class ServletCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	ClienteNeg ClienteNeg = new ClienteNegImpl();
-	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletCliente() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	public ServletCliente() {
+        super();
+    }
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-		
 		if(request.getParameter("btnRegistrarCliente") != null)
 		{
 			try {
 				Cliente c = new Cliente();
-				c.setDni(Integer.parseInt(request.getParameter("txtDNI")));
-				c.setCuil(Integer.parseInt(request.getParameter("txtCuil")));
+				c.setDni(request.getParameter("txtDNI"));
+				c.setCuil(request.getParameter("txtCuil"));
 				c.setNombre(request.getParameter("txtNombre"));
 				c.setApellido(request.getParameter("txtApellido"));
 				c.setSexo(request.getParameter("txtSexo"));
@@ -60,7 +44,7 @@ public class ServletCliente extends HttpServlet {
 				c.setLocalidad(request.getParameter("txtLocalidad"));
 				c.setProvincia(request.getParameter("txtProvincia"));
 				c.setCorreoElectronico(request.getParameter("txtCorreoElectronico"));
-				c.setTelefono(Integer.parseInt(request.getParameter("txtTelefono")));
+				c.setTelefono(request.getParameter("txtTelefono"));
 				
 				boolean  filas = ClienteNeg.insertar(c);
 				
@@ -79,6 +63,5 @@ public class ServletCliente extends HttpServlet {
 		        return;
 			}
 	}
-
 }
 }
