@@ -6,6 +6,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- BOOTSTRAP -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<!-- DATATABLES SCRIPTS -->
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
@@ -18,7 +22,6 @@
 </script>
 </head>
 <body> 
-<a href="ServletCliente?Param=list">Listar clientes</a>
 <%
 	List<Cliente> listaC = new ArrayList<Cliente>();
 	if(request.getAttribute("listaC")!=null){
@@ -26,6 +29,30 @@
 	}
 	
 %>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-2 d-none d-md-block bg-primary sidebar text-white vh-100">
+      <div class="position-sticky pt-3">
+        <h5 class="text-center">Menú</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link text-white active" href="AltaCliente.jsp">Alta de Cliente</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="ServletCliente?Param=list">Listado de Clientes</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+     <main class="col-md-10 ms-sm-auto px-md-4">
+      <div class="pt-3">
+        <h2>Formulario de Cliente</h2>
+        <p><strong>Usuario:</strong></p>
+        <h5>Listado de Clientes ()</h5>
+
+        <div class="table-responsive">
 <table id="tablaClientes" class="display">
 	<thead>
 	<tr>
@@ -60,6 +87,11 @@
 	%>
 	</tbody>
 	
-</table>
+			</table>
+  		</div>
+      </div>
+    </main>
+  </div>
+</div>
 </body>
 </html>

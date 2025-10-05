@@ -4,10 +4,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- BOOTSTRAP -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
 
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-2 d-none d-md-block bg-primary sidebar text-white vh-100">
+      <div class="position-sticky pt-3">
+        <h5 class="text-center">Menú</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link text-white active" href="AltaCliente.jsp">Alta de Cliente</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="ServletCliente?Param=list">Listado de Clientes</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <main class="col-md-10 ms-sm-auto px-md-4">
     <h1>Alta Cliente</h1>
     <form action="ServletCliente" method="post">
 		<label>DNI</label>
@@ -50,6 +71,8 @@
 		
 		
     </form>
-
+</main>
+</div>
+</div>
 </body>
 </html>
