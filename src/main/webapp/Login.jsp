@@ -57,12 +57,7 @@
 		</tr>
 		<%
 			if(request.getParameter("btnLogin") != null){
-				if(request.getAttribute("usuario") != null) { %>
-					<tr>
-						<td><label style="color: green;">Sesión iniciada correctamente.</label></td>
-					</tr>
-				<% }
-				else { %>
+				if(request.getAttribute("usuario") == null) { %>
 					<tr>
 						<td><label style="color: red;">Nombre de usuario o contraseña incorrectos.</label></td>
 					</tr>

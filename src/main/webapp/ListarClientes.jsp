@@ -49,7 +49,7 @@
      <main class="col-md-10 ms-sm-auto px-md-4">
       <div class="pt-3">
         <h2>Formulario de Cliente</h2>
-        <p><strong>Usuario:</strong></p>
+        <p><strong>Usuario: </strong><%= session.getAttribute("usuario") %></p>
         <h5>Listado de Clientes ()</h5>
 
         <div class="table-responsive">

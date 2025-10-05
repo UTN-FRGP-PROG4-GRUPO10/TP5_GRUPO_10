@@ -30,6 +30,7 @@
     
     <main class="col-md-10 ms-sm-auto px-md-4">
     <h1>Alta Cliente</h1>
+    <p><strong>Usuario: </strong><%= session.getAttribute("usuario") %></p>
     <form action="ServletCliente" method="post">
 		<label>DNI</label>
 		<input type="text" name="txtDNI" required/>

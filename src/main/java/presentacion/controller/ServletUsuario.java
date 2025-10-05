@@ -33,9 +33,17 @@ public class ServletUsuario extends HttpServlet {
 			String contrasena = request.getParameter("txtContrasena");
 			Usuario u = usuarioNeg.obtenerLogin(usuario, contrasena);
 			
-			request.setAttribute("usuario", u);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/AltaCliente.jsp");
-			dispatcher.forward(request, response);
+			if(u != null) {
+				request.getSession().setAttribute("usuario", u.getUsuario());
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/ListarClientes.jsp");
+				dispatcher.forward(request, response);
+			}
+			else {
+				request.setAttribute("usuario", u);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/Login.jsp");
+				dispatcher.forward(request, response);				
+			}
+			
 		}
 		
 	}
