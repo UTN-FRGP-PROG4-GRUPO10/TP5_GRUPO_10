@@ -1,6 +1,7 @@
 package presentacion.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,7 +26,22 @@ public class ServletCliente extends HttpServlet {
     }
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		try {
+			
+			request.setAttribute("listaC", ClienteNeg.obtenerTodos());
+			RequestDispatcher rd = request.getRequestDispatcher("/ListarClientes.jsp");
+			rd.forward(request, response);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+	        request.setAttribute("mensaje", "Error al listar clientes: " + e.getMessage());
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("/ListarClientes.jsp");
+	        dispatcher.forward(request, response);
+	        return;
+		}
+	
+	
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -63,5 +79,8 @@ public class ServletCliente extends HttpServlet {
 		        return;
 			}
 	}
+
+			
+		
 }
 }

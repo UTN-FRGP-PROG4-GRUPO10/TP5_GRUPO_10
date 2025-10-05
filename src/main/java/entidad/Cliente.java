@@ -136,5 +136,10 @@ public class Cliente {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
+	
+	public String getNombreCompleto() {
+		return nombre + " " + apellido;
+	
+	}
 
 }

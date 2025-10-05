@@ -1,6 +1,7 @@
 package datos.impl;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 //import java.time.LocalDate;
 import java.util.List;
 
@@ -62,8 +63,35 @@ public class ClienteDaoImpl implements ClienteDao{
 	
 	@Override
 	public List<Cliente> obtenerTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Cliente> Clientes = new ArrayList<Cliente>();
+		
+		cn = new Conexion();
+		cn.Open();
+		
+		try {
+			String query = "SELECT * FROM Clientes";
+			ResultSet rs = cn.query(query);
+			
+			while(rs.next()) {
+				Cliente Cliente = new Cliente();
+				Cliente.setDni(rs.getString("dni"));
+				Cliente.setCuil(rs.getString("cuil"));
+				Cliente.setNombre(rs.getString("nombre"));
+				Cliente.setApellido(rs.getString("apellido"));	
+				Cliente.setSexo(rs.getString("sexo"));
+				Cliente.setFechaNacimiento(rs.getDate("fecha_nacimiento").toLocalDate());
+				Cliente.setDireccion(rs.getString("direccion"));
+				Cliente.setNacionalidad(rs.getString("nacionalidad"));
+				Cliente.setLocalidad(rs.getString("localidad"));
+				Cliente.setProvincia(rs.getString("provincia"));
+				Clientes.add(Cliente);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return Clientes;
 	}
 	@Override
 	public boolean editar(Cliente cliente) {
