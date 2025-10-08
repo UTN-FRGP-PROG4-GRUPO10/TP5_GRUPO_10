@@ -3,6 +3,13 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+	if (session.getAttribute("usuario") == null) {
+    	response.sendRedirect("Login.jsp");
+    	return;
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>

@@ -3,6 +3,11 @@
     
 <% 
     String fechaActual = java.time.LocalDate.now().toString();
+
+	if (session.getAttribute("usuario") == null) {
+    	response.sendRedirect("Login.jsp");
+    	return;
+}
 %>
 <!DOCTYPE html>
 <html>
