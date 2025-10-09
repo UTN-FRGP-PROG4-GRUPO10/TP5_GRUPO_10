@@ -79,7 +79,7 @@
       <div class="pt-3">
         <h2>Formulario de Cliente</h2>
         <p><strong>Usuario: </strong><%= session.getAttribute("usuario") %></p>
-        <h5>Listado de Clientes ()</h5>
+        <h5>Listado de Clientes (<%= listaC.size() %>)</h5>
 
         <div class="table-responsive">
 <table id="tablaClientes" class="display">

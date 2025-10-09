@@ -35,8 +35,9 @@ public class ServletUsuario extends HttpServlet {
 			
 			if(u != null) {
 				request.getSession().setAttribute("usuario", u.getUsuario());
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/ListarClientes.jsp");
-				dispatcher.forward(request, response);
+//				RequestDispatcher dispatcher = request.getRequestDispatcher("/ListarClientes.jsp");
+//				dispatcher.forward(request, response);
+				response.sendRedirect("ServletCliente");
 			}
 			else {
 				request.setAttribute("usuario", u);
